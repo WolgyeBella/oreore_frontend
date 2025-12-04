@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "email": "user1@example.com",
+    "password": "password123",
+    "name": "홍길동",
+    "nickname": "길동이",
+    "phone": "01012345678",
+    "postalCode": "12345",
+    "basicAdd": "서울특별시 강남구 테헤란로",
+    "detailAdd": "123번지",
+    "image": ""
+  },
+  {
+    "id": "2",
+    "email": "user2@example.com",
+    "password": "password123",
+    "name": "김철수",
+    "nickname": "철수야",
+    "phone": "01098765432",
+    "postalCode": "54321",
+    "basicAdd": "서울특별시 서초구 서초대로",
+    "detailAdd": "456번지",
+    "image": ""
+  },
+  {
+    "id": "3",
+    "email": "test@test.com",
+    "password": "test1234",
+    "name": "테스트",
+    "nickname": "테스터",
+    "phone": "01011112222",
+    "postalCode": "11111",
+    "basicAdd": "서울특별시 종로구 세종대로",
+    "detailAdd": "789번지",
+    "image": ""
+  }
+]

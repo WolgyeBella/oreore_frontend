@@ -1,56 +1,192 @@
 [
   {
     "id": 1,
-    "itemName": "카메라",
-    "imageSrc": "/images/camera1.jpg",
+    "itemName": "빈티지 필름 카메라",
+    "imageSrc": "/images/camera01.jpg",
     "price": 115000,
-    "description": "상품 정보가 여기에 표시됩니다.",
+    "description": "옛날 감성의 필름 카메라로 추억을 담아보세요.",
     "shopName": "subbro",
+    "categoryName": "camera",
     "purchaseDate": "2024.11.14"
   },
   {
     "id": 2,
     "itemName": "빈티지 타자기",
-    "imageSrc": "/images/typewriter1.jpg",
+    "imageSrc": "/images/typewriter01.jpg",
     "price": 90000,
     "description": "고풍스러운 타자기입니다.",
     "shopName": "subbro",
+    "categoryName": "typewriter",
     "purchaseDate": "2024.11.14"
   },
   {
     "id": 3,
-    "itemName": "레코드 플레이어",
-    "imageSrc": "/images/lp.jpg",
+    "itemName": "빈티지 레코드 플레이어",
+    "imageSrc": "/images/speaker01.jpg",
     "price": 120000,
     "description": "레코드와 함께 돌아가는 빈티지 플레이어.",
     "shopName": "subbro",
+    "categoryName": "audio",
     "purchaseDate": "2024.11.14"
   },
   {
     "id": 4,
-    "itemName": "라디오",
-    "imageSrc": "/images/radio1.png",
+    "itemName": "빈티지 라디오",
+    "imageSrc": "/images/monitor01.jpg",
     "price": 150000,
     "description": "옛날 고전음악 분위기를 느낄 수 있는 라디오.",
     "shopName": "subbro",
+    "categoryName": "audio",
     "purchaseDate": "2024.11.14"
   },
   {
     "id": 5,
-    "itemName": "스피커",
-    "imageSrc": "/images/speaker1.jpg",
+    "itemName": "빈티지 스피커",
+    "imageSrc": "/images/speaker02.jpg",
     "price": 80000,
     "description": "빈티지 스피커로 음악을 즐기세요.",
     "shopName": "elice",
+    "categoryName": "audio",
     "purchaseDate": "2024.11.14"
   },
   {
     "id": 6,
-    "itemName": "폴라로이드 카메라",
-    "imageSrc": "/images/camera2.jpg",
+    "itemName": "빈티지 폴라로이드 카메라",
+    "imageSrc": "/images/camera02.jpg",
     "price": 95000,
-    "description": "즉석에서 사진을 출력하는 폴라로이드.",
+    "description": "즉석에서 사진을 출력하는 빈티지 폴라로이드.",
     "shopName": "elice",
+    "categoryName": "camera",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 7,
+    "itemName": "빈티지 롤리플렉스 카메라",
+    "imageSrc": "/images/camera03.jpg",
+    "price": 130000,
+    "description": "클래식한 디자인의 빈티지 롤리플렉스 카메라.",
+    "shopName": "subbro",
+    "categoryName": "camera",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 8,
+    "itemName": "빈티지 인스턴트 카메라",
+    "imageSrc": "/images/camera04.jpg",
+    "price": 140000,
+    "description": "레트로 감성의 빈티지 인스턴트 카메라.",
+    "shopName": "elice",
+    "categoryName": "camera",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 9,
+    "itemName": "빈티지 타자기 세트",
+    "imageSrc": "/images/typewriter02.jpg",
+    "price": 95000,
+    "description": "컬렉션용 빈티지 타자기 세트.",
+    "shopName": "subbro",
+    "categoryName": "typewriter",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 10,
+    "itemName": "클래식 타자기",
+    "imageSrc": "/images/typewriter03.jpg",
+    "price": 100000,
+    "description": "옛날 감성을 느낄 수 있는 클래식 타자기.",
+    "shopName": "subbro",
+    "categoryName": "typewriter",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 11,
+    "itemName": "레트로 타자기",
+    "imageSrc": "/images/typewriter04.jpg",
+    "price": 88000,
+    "description": "레트로 스타일의 아름다운 타자기.",
+    "shopName": "elice",
+    "categoryName": "typewriter",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 12,
+    "itemName": "빈티지 턴테이블",
+    "imageSrc": "/images/speaker03.jpg",
+    "price": 75000,
+    "description": "레코드를 재생하는 빈티지 턴테이블.",
+    "shopName": "elice",
+    "categoryName": "audio",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 13,
+    "itemName": "빈티지 오디오 시스템",
+    "imageSrc": "/images/speaker04.jpg",
+    "price": 110000,
+    "description": "옛날 감성의 빈티지 오디오 시스템.",
+    "shopName": "subbro",
+    "categoryName": "audio",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 14,
+    "itemName": "빈티지 음향 기기",
+    "imageSrc": "/images/speaker05.jpg",
+    "price": 85000,
+    "description": "클래식한 디자인의 빈티지 음향 기기.",
+    "shopName": "elice",
+    "categoryName": "audio",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 15,
+    "itemName": "빈티지 TV",
+    "imageSrc": "/images/monitor02.jpg",
+    "price": 200000,
+    "description": "옛날 감성의 빈티지 TV 세트.",
+    "shopName": "subbro",
+    "categoryName": "display",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 16,
+    "itemName": "빈티지 모니터",
+    "imageSrc": "/images/monitor03.jpg",
+    "price": 250000,
+    "description": "레트로 스타일의 빈티지 모니터.",
+    "shopName": "elice",
+    "categoryName": "display",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 17,
+    "itemName": "빈티지 전화기",
+    "imageSrc": "/images/phone01.jpg",
+    "price": 80000,
+    "description": "옛날 감성의 빈티지 회전식 전화기.",
+    "shopName": "subbro",
+    "categoryName": "phone",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 18,
+    "itemName": "빈티지 다이얼 전화기",
+    "imageSrc": "/images/phone02.jpg",
+    "price": 95000,
+    "description": "클래식한 디자인의 빈티지 다이얼 전화기.",
+    "shopName": "elice",
+    "categoryName": "phone",
+    "purchaseDate": "2024.11.14"
+  },
+  {
+    "id": 19,
+    "itemName": "빈티지 무전기",
+    "imageSrc": "/images/phone03.jpg",
+    "price": 120000,
+    "description": "레트로 감성의 빈티지 무전기.",
+    "shopName": "subbro",
+    "categoryName": "phone",
     "purchaseDate": "2024.11.14"
   }
 ]

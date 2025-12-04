@@ -1,15 +1,27 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ROUTE_LINK from "./RouterLink.ts";
-import List from "../pages/List/List.tsx";
-import LoginPage from "../pages/Login/Login.tsx";
-import SignupPage from "../pages/Signup/Signup.tsx";
-import Detail from "../pages/Detail/Detail.tsx";
-import AddOrEditProduct from "../pages/AddOrEditProduct/AddOrEditProduct.tsx";
-import MyPage from "../pages/MyPage/MyPage.tsx";
-import CartPage from "../pages/Cart/Cart.tsx";
-import PaymentPage from "../pages/Payment/Payment.tsx";
-import PasswordCheckPage from "../pages/PasswordCheck/PasswordCheck.tsx";
-import UserDataEditPage from "../pages/UserDataEdit/UserDataEdit.tsx";
+// 기존 API 통신 기반 페이지 (주석처리)
+// import List from "../pages/List/List.tsx";
+// import LoginPage from "../pages/Login/Login.tsx";
+// import SignupPage from "../pages/Signup/Signup.tsx";
+// import Detail from "../pages/Detail/Detail.tsx";
+// import CartPage from "../pages/Cart/Cart.tsx";
+// import PaymentPage from "../pages/Payment/Payment.tsx";
+// import AddOrEditProduct from "../pages/AddOrEditProduct/AddOrEditProduct.tsx";
+// import MyPage from "../pages/MyPage/MyPage.tsx";
+// import PasswordCheckPage from "../pages/PasswordCheck/PasswordCheck.tsx";
+// import UserDataEditPage from "../pages/UserDataEdit/UserDataEdit.tsx";
+// 목데이터 기반 페이지
+import List from "../pages/List/List.mock.tsx";
+import LoginPage from "../pages/Login/Login.mock.tsx";
+import SignupPage from "../pages/Signup/Signup.mock.tsx";
+import Detail from "../pages/Detail/Detail.mock.tsx";
+import CartPage from "../pages/Cart/Cart.mock.tsx";
+import PaymentPage from "../pages/Payment/Payment.mock.tsx";
+import AddOrEditProduct from "../pages/AddOrEditProduct/AddOrEditProduct.mock.tsx";
+import MyPage from "../pages/MyPage/MyPage.mock.tsx";
+import PasswordCheckPage from "../pages/PasswordCheck/PasswordCheck.mock.tsx";
+import UserDataEditPage from "../pages/UserDataEdit/UserDataEdit.mock.tsx";
 import PaymentComplete from "../pages/Payment/PaymentComplete/PaymentComplete.tsx";
 import PaymentFail from "../pages/Payment/PaymentFail/PaymentFail.tsx";
 import BankPaymentComplete from "../pages/Payment/BankPaymentComplete/BankPaymentComplete.tsx";

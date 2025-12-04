@@ -2,8 +2,8 @@ import React from "react";
 import * as S from "./PaymentMethodButtons.styled";
 
 const paymentMethods = [
-  { id: "toss", label: "토스페이" },
-  // { id: "bank", label: "무통장(가상계좌)" },
+  // { id: "toss", label: "토스페이" },
+  { id: "bank", label: "무통장(가상계좌)" },
 ];
 
 interface PaymentMethodButtonsProps {
