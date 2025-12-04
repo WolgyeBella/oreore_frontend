@@ -48,3 +48,4 @@ export default tseslint.config({
   },
 })
 ```
+# oreore_frontend
