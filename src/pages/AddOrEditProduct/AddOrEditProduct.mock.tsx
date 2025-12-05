@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -73,7 +73,7 @@ const AddOrEditProduct = () => {
     getCategory();
   }, []);
 
-  const getOriginProductInfo = () => {
+  const getOriginProductInfo = useCallback(() => {
     if (!productId) return;
 
     try {
@@ -101,11 +101,11 @@ const AddOrEditProduct = () => {
     } catch (error) {
       console.error("Failed to load product info:", error);
     }
-  };
+  }, [productId]);
 
   useEffect(() => {
     if (location.pathname === "/editproduct") getOriginProductInfo();
-  }, [location.pathname, productId]);
+  }, [location.pathname, getOriginProductInfo]);
 
   useEffect(() => {
     if (itemInfo) {
@@ -114,7 +114,7 @@ const AddOrEditProduct = () => {
       handleInputChange("productDescription", itemInfo.description);
       setSelectedCategory(itemInfo.categoryName);
     }
-  }, [itemInfo]);
+  }, [itemInfo, handleInputChange]);
 
   const handleRadioValue = (e: React.MouseEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;

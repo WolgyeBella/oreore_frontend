@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import useMockAuthStore from "../../stores/useMockAuthStore";
 import ScrollUp from "../../components/ScrollUp/ScrollUp";
 import scrollToTop from "../../utils/scrollToTop";
+import ROUTE_LINK from "../../routes/RouterLink";
 
 interface CartItemsProps {
   id: string;
@@ -76,7 +77,9 @@ const Detail = () => {
   };
 
   // mockItems.json에서 상품 데이터 가져오기
-  const getMockItem = async () => {
+  const getMockItem = useCallback(async () => {
+    if (!productId) return;
+
     try {
       const response = await axios.get("/data/mockItems.json");
       const mockItems: MockItem[] = response.data;
@@ -96,20 +99,21 @@ const Detail = () => {
       toast.error("상품 정보를 불러오는데 실패했습니다.");
       navigate("/");
     }
-  };
+  }, [productId, navigate]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsSellerBoxVisible(entry.isIntersecting);
     });
 
-    if (sellerBoxRef.current) {
-      observer.observe(sellerBoxRef.current);
+    const currentRef = sellerBoxRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sellerBoxRef.current) {
-        observer.unobserve(sellerBoxRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -119,9 +123,16 @@ const Detail = () => {
       getMockItem();
       closeModal();
     }
-  }, [productId]);
+  }, [productId, getMockItem, closeModal]);
 
   const addToCart = () => {
+    // 로그인 체크
+    if (!user.isAuthenticated || !user.user) {
+      toast.warn("로그인이 필요합니다.");
+      navigate(ROUTE_LINK.LOGIN.path);
+      return;
+    }
+
     const cartItems = localStorage.getItem("products")
       ? JSON.parse(localStorage.getItem("products")!)
       : [];
@@ -166,9 +177,16 @@ const Detail = () => {
   };
 
   const purchase = () => {
+    // 로그인 체크
+    if (!user.isAuthenticated || !user.user) {
+      toast.warn("로그인이 필요합니다.");
+      navigate(ROUTE_LINK.LOGIN.path);
+      return;
+    }
+
     const newItem = { id: productId, checked: false, shop: item?.sellerId };
 
-    navigate("/payment", { state: newItem });
+    navigate(ROUTE_LINK.PAYMENT.path, { state: newItem });
   };
 
   const handleSellerInfoClick = () => {

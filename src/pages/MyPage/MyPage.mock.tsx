@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTE_LINK from "../../routes/RouterLink";
 
@@ -46,35 +46,14 @@ const MyPage = () => {
   >([]);
   const { modalType, closeModal } = useModalStore();
   const user = useMockAuthStore();
-
-  const deleteProduct = async (
-    id: string,
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
-    e.stopPropagation();
-    e.preventDefault();
-    try {
-      const myProducts = JSON.parse(
-        localStorage.getItem("myProducts") || "[]",
-      );
-      const updatedProducts = myProducts.filter(
-        (item: LocalProduct) => item._id !== id,
-      );
-      localStorage.setItem("myProducts", JSON.stringify(updatedProducts));
-      toast.success("✨상품이 삭제되었습니다.");
-      getSellingItems();
-    } catch (error) {
-      console.error("Failed to delete product:", error);
-      toast.error("상품 삭제 중 오류가 발생했습니다.");
-    }
-  };
+  const deleteProductRef = useRef<
+    (id: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  >(() => {});
 
   // localStorage에서 판매중인 상품 가져오기
-  const getSellingItems = () => {
+  const getSellingItems = useCallback(() => {
     try {
-      const myProducts = JSON.parse(
-        localStorage.getItem("myProducts") || "[]",
-      );
+      const myProducts = JSON.parse(localStorage.getItem("myProducts") || "[]");
       // 현재 사용자가 등록한 상품만 필터링
       const userProducts = myProducts.filter(
         (item: LocalProduct) => item.sellerId?._id === user.user?.id,
@@ -107,7 +86,7 @@ const MyPage = () => {
             __v: 0,
             idx: idx,
             row: row,
-            deleteProduct: deleteProduct,
+            deleteProduct: deleteProductRef.current,
           };
         },
       );
@@ -119,10 +98,10 @@ const MyPage = () => {
       setSellingItems([]);
       setTotalPage(1);
     }
-  };
+  }, [currentPage, user.user?.id, user.user?.nickname]);
 
   // localStorage에서 구매 내역 가져오기
-  const getPurchased = () => {
+  const getPurchased = useCallback(() => {
     try {
       const orderInfo = localStorage.getItem("orderInfo");
       if (orderInfo) {
@@ -145,7 +124,8 @@ const MyPage = () => {
             price: item.price,
             description: item.description || "",
             shopName: item.categoryName || "상점",
-            purchaseDate: order.payedAt || new Date().toISOString().split("T")[0],
+            purchaseDate:
+              order.payedAt || new Date().toISOString().split("T")[0],
           }));
           setPurchasedItems(purchased);
         } else {
@@ -158,16 +138,40 @@ const MyPage = () => {
       console.error("Failed to load purchased items:", error);
       setPurchasedItems([]);
     }
-  };
+  }, [user.user?.id]);
+
+  const deleteProduct = useCallback(
+    async (id: string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      e.stopPropagation();
+      e.preventDefault();
+      try {
+        const myProducts = JSON.parse(
+          localStorage.getItem("myProducts") || "[]",
+        );
+        const updatedProducts = myProducts.filter(
+          (item: LocalProduct) => item._id !== id,
+        );
+        localStorage.setItem("myProducts", JSON.stringify(updatedProducts));
+        toast.success("✨상품이 삭제되었습니다.");
+        getSellingItems();
+      } catch (error) {
+        console.error("Failed to delete product:", error);
+        toast.error("상품 삭제 중 오류가 발생했습니다.");
+      }
+    },
+    [getSellingItems],
+  );
+
+  deleteProductRef.current = deleteProduct;
 
   useEffect(() => {
     getSellingItems();
     getPurchased();
-  }, [user.user?.id]);
+  }, [user.user?.id, getSellingItems, getPurchased]);
 
   useEffect(() => {
     getSellingItems();
-  }, [currentPage]);
+  }, [currentPage, getSellingItems]);
 
   const editProfile = () => {
     navigate(ROUTE_LINK.PASSWORD_CHECK.path);
@@ -177,13 +181,13 @@ const MyPage = () => {
     navigate(ROUTE_LINK.ADD_PRODUCT.path);
   };
 
-  const paginationNum = () => {
+  const paginationNum = useCallback(() => {
     const nums: number[] = [];
     for (let i = 1; i <= totalPage; i++) {
       nums.push(i);
     }
     setPageNum(nums);
-  };
+  }, [totalPage]);
 
   const goToPrevPage = () => {
     if (currentPage !== 1) {
@@ -199,7 +203,7 @@ const MyPage = () => {
 
   useEffect(() => {
     paginationNum();
-  }, [sellingItems, totalPage]);
+  }, [paginationNum]);
 
   const handleDeleteModalClick = () => {
     getSellingItems();
@@ -338,4 +342,3 @@ const MyPage = () => {
 };
 
 export default MyPage;
-

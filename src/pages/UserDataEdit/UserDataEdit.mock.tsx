@@ -29,7 +29,7 @@ export default function UserDataEditPage() {
 
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const { imgInputRef, preview, hasFile, handleImageChange } =
-    useHandleImageChange("profile");
+    useHandleImageChange();
 
   useEffect(() => {
     if (user) {
@@ -63,7 +63,7 @@ export default function UserDataEditPage() {
       navigate(ROUTE_LINK.MYPAGE.path);
       toast.success("✨회원 정보가 수정되었습니다.");
     } catch (error) {
-      console.error("회원 정보 수정 실패:", error);
+      console.error("Failed to update user profile:", error);
       toast.error("오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
