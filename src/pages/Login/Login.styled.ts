@@ -41,7 +41,7 @@ export const LoginButton = styled.button`
   width: 100%;
   padding: 12px;
   color: ${(props) => props.theme.color.white};
-  background-color: ${({ theme }) => theme.color.primary};
+  background-color: ${({ theme }) => theme.color.orange70};
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -49,7 +49,7 @@ export const LoginButton = styled.button`
   transition: all 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.primaryHover};
+    background-color: ${({ theme }) => theme.color.orange};
   }
 `;
 

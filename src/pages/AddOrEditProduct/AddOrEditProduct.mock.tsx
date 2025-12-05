@@ -53,7 +53,7 @@ const AddOrEditProduct = () => {
   const [inputValue, handleInputChange] = useInputValue();
   const { isFocused, handleFocus, handleBlur } = useIsFocused();
   const { imgInputRef, preview, hasFile, handleImageChange } =
-    useHandleImageChange("product");
+    useHandleImageChange();
 
   const { modalType, openModal, closeModal } = useModalStore();
   const user = useMockAuthStore();

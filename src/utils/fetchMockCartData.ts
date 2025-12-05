@@ -56,7 +56,7 @@ export const fetchMockCartData = async (): Promise<
           price: cartItem.itemInfo.price,
           description: cartItem.itemInfo.description,
           shop: cartItem.shop,
-          checked: cartItem.checked || false,
+          checked: false,
         };
       } else {
         // 기존 방식: mockItems에서 찾기
@@ -71,13 +71,13 @@ export const fetchMockCartData = async (): Promise<
             price: foundItem.price,
             description: foundItem.description,
             shop: cartItem.shop,
-            checked: cartItem.checked || false,
+            checked: false,
           };
         }
         return null;
       }
     },
-  ).filter((item): item is CartItem => item !== null);
+  ).filter((item: CartItem | null): item is CartItem => item !== null);
 
   // 상점별로 그룹화
   const groupedByShop = items.reduce(

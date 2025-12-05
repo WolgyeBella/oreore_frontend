@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTE_LINK from "../../routes/RouterLink";
-import axios from "axios";
 
 import { Button, ItemCard, CartItem, ConfirmModal } from "components";
 import Nav from "../../components/Nav/Nav.mock";
@@ -27,17 +26,6 @@ interface LocalProduct {
   };
   createdAt?: string;
   updatedAt?: string;
-}
-
-interface MockItem {
-  id: number;
-  itemName: string;
-  imageSrc: string;
-  price: number;
-  description: string;
-  shopName: string;
-  categoryName: string;
-  purchaseDate: string;
 }
 
 const MyPage = () => {
@@ -76,6 +64,7 @@ const MyPage = () => {
       toast.success("✨상품이 삭제되었습니다.");
       getSellingItems();
     } catch (error) {
+      console.error("Failed to delete product:", error);
       toast.error("상품 삭제 중 오류가 발생했습니다.");
     }
   };
@@ -189,7 +178,7 @@ const MyPage = () => {
   };
 
   const paginationNum = () => {
-    let nums: number[] = [];
+    const nums: number[] = [];
     for (let i = 1; i <= totalPage; i++) {
       nums.push(i);
     }

@@ -14,7 +14,7 @@ export const S = {
 
     background-color: ${(props) =>
       props.bgcolor
-        ? props.theme.color[props.bgcolor]
+        ? (props.theme.color as Record<string, string>)[props.bgcolor]
         : props.theme.color.white};
     color: ${(props) =>
       props.bgcolor ? props.theme.color.white : props.theme.color.orange};
@@ -30,7 +30,7 @@ export const S = {
       background-color: ${(props) => {
         if (props.bgcolor) {
           const baseColor = props.bgcolor.replace(/\d+$/, "");
-          return props.theme.color[baseColor];
+          return (props.theme.color as Record<string, string>)[baseColor];
         }
       }};
     }

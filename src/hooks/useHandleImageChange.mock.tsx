@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { toast } from "react-toastify";
 
-const useHandleImageChange = (type: string) => {
+const useHandleImageChange = () => {
   const imgInputRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string>("");
   const [hasFile, setHasFile] = useState<boolean>(false);
